@@ -1,0 +1,23 @@
+identity:
+  author: "sawyer-shi"
+  name: "file_encrypt_decrypt"
+  label:
+    en_US: "File Encrypt & Decrypt"
+    zh_Hans: "文件加密与解密工具"
+  description:
+    en_US: "Local File Encrypt & Decrypt: Supported files include images (JPG, PNG, GIF, BMP...), documents (DOCX, XLSX, PPTX, PDF, TXT, MD...), archives (ZIP, RAR, 7Z, TAR...), and other formats (MP3, MP4, EXE, BIN...)."
+    zh_Hans: "本地文件加密与解密：支持的文件包括图片（JPG、PNG、GIF、BMP...）、文档（DOCX、XLSX、PPTX、PDF、TXT、MD...）、压缩包（ZIP、RAR、7Z、TAR...）以及其他格式（MP3、MP4、EXE、BIN...）。"
+  icon: "icon.png"
+tools:
+  - tools/encrypt_file_manual.yaml
+  - tools/encrypt_file_auto.yaml
+  - tools/decrypt_file.yaml
+  - tools/encrypt_file_pro_manual.yaml
+  - tools/encrypt_file_pro_auto.yaml
+  - tools/decrypt_file_pro.yaml
+  - tools/encrypt_file_simple_manual.yaml
+  - tools/encrypt_file_simple_auto.yaml
+  - tools/decrypt_file_simple.yaml
+extra:
+  python:
+    source: provider/file_encrypt_decrypt.py

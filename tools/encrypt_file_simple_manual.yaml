@@ -1,0 +1,38 @@
+identity:
+  author: "sawyer-shi"
+  name: "encrypt_file_simple_manual"
+  label:
+    en_US: "Simple Encrypt File with Manual Key"
+    zh_Hans: "文件简单加密--手动秘钥"
+description:
+  human:
+    en_US: "Encrypt PDF, ZIP, or 7Z files with password protection using a manually provided key. The file can be opened with the correct password/key."
+    zh_Hans: "使用手动提供的秘钥为PDF、ZIP或7Z文件添加密码保护。文件可以使用正确的密码/秘钥打开。"
+  llm: "Encrypt PDF, ZIP, or 7Z files with password protection using a manually provided key. The file can be opened with the correct password/key."
+class_name: EncryptFileSimpleManual
+parameters:
+  - name: file
+    label:
+      en_US: "File"
+      zh_Hans: "文件"
+    type: file
+    required: true
+    form: llm
+    human_description:
+      en_US: "The PDF, ZIP, or 7Z file to encrypt."
+      zh_Hans: "要加密的PDF、ZIP或7Z文件。"
+    llm_description: "The PDF, ZIP, or 7Z file to encrypt."
+  - name: key
+    label:
+      en_US: "Encryption Key"
+      zh_Hans: "加密秘钥"
+    type: string
+    required: true
+    form: llm
+    human_description:
+      en_US: "The encryption key to use as password."
+      zh_Hans: "用作密码的加密秘钥。"
+    llm_description: "The encryption key to use as password."
+extra:
+  python:
+    source: tools/encrypt_file_simple_manual.py

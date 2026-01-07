@@ -1,0 +1,38 @@
+identity:
+  author: "sawyer-shi"
+  name: "decrypt_file_pro"
+  label:
+    en_US: "Advanced Decrypt File"
+    zh_Hans: "文件高级解密"
+description:
+  human:
+    en_US: "Decrypt files that were encrypted with the advanced encryption method. The original filename will be restored from the encrypted file."
+    zh_Hans: "解密使用高级加密方法加密的文件。原始文件名将从加密文件中恢复。"
+  llm: "Decrypt files that were encrypted with the advanced encryption method. The original filename will be restored from the encrypted file."
+class_name: DecryptFilePro
+parameters:
+  - name: file
+    label:
+      en_US: "Encrypted File"
+      zh_Hans: "加密文件"
+    type: file
+    required: true
+    form: llm
+    human_description:
+      en_US: "The encrypted file to decrypt."
+      zh_Hans: "要解密的加密文件。"
+    llm_description: "The encrypted file to decrypt."
+  - name: key
+    label:
+      en_US: "Decryption Key"
+      zh_Hans: "解密秘钥"
+    type: string
+    required: true
+    form: llm
+    human_description:
+      en_US: "The decryption key used during encryption."
+      zh_Hans: "加密时使用的解密秘钥。"
+    llm_description: "The decryption key used during encryption."
+extra:
+  python:
+    source: tools/decrypt_file_pro.py

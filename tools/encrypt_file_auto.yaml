@@ -1,0 +1,39 @@
+identity:
+  author: "sawyer-shi"
+  name: "encrypt_file_auto"
+  label:
+    en_US: "Encrypt File with Auto-generated Key"
+    zh_Hans: "文件通用加密--自动秘钥"
+description:
+  human:
+    en_US: "Encrypt any file using AES encryption with an automatically generated key. Supports all file types. The key will be returned and must be saved for decryption."
+    zh_Hans: "使用AES加密算法和自动生成的秘钥加密任何文件。支持所有文件类型。秘钥将被返回，必须保存用于解密。"
+  llm: "Encrypt any file using AES encryption with an automatically generated key. Supports all file types. The key will be returned and must be saved for decryption."
+class_name: EncryptFileAuto
+parameters:
+  - name: file
+    label:
+      en_US: "File"
+      zh_Hans: "文件"
+    type: file
+    required: true
+    form: llm
+    human_description:
+      en_US: "The file to encrypt."
+      zh_Hans: "要加密的文件。"
+    llm_description: "The file to encrypt."
+  - name: suffix
+    label:
+      en_US: "Encryption Suffix"
+      zh_Hans: "加密后缀"
+    type: string
+    required: false
+    default: "locked"
+    form: llm
+    human_description:
+      en_US: "The suffix to add to the encrypted file name (default: locked)."
+      zh_Hans: "添加到加密文件名的后缀（默认：locked）。"
+    llm_description: "The suffix to add to the encrypted file name (default: locked)."
+extra:
+  python:
+    source: tools/encrypt_file_auto.py

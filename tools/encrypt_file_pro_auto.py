@@ -17,17 +17,14 @@ class EncryptFileProAuto(Tool):
             yield self.create_json_message({'success': False, 'error': 'File is required'})
             return
         
-        if not hasattr(file_obj, 'save_as'):
-            yield self.create_text_message("Error: Invalid file object")
-            yield self.create_json_message({'success': False, 'error': 'Invalid file object'})
-            return
-        
         try:
             import tempfile
-            temp_dir = tempfile.gettempdir()
             
+            temp_dir = tempfile.gettempdir()
             input_path = os.path.join(temp_dir, file_obj.filename)
-            file_obj.save_as(input_path)
+            
+            with open(input_path, 'wb') as f:
+                f.write(file_obj.blob)
             
             key = SecurityUtils.generate_key()
             

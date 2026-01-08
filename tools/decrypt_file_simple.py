@@ -1,42 +1,35 @@
 import os
 from typing import Any
+from collections.abc import Generator
 from dify_plugin import Tool
+from dify_plugin.entities.tool import ToolInvokeMessage
 from tools.crypto_utils import SecurityUtils
 
 
 class DecryptFileSimple(Tool):
     
-    def _invoke(self, parameters: dict[str, Any]) -> dict[str, Any]:
+    def _invoke(self, parameters: dict[str, Any]) -> Generator[ToolInvokeMessage]:
         file_obj = parameters.get('file')
         key = parameters.get('key')
         
         if not file_obj:
-            return {
-                'text': 'Error: File is required',
-                'json': {'success': False, 'error': 'File is required'},
-                'files': []
-            }
+            yield self.create_text_message("Error: File is required")
+            yield self.create_json_message({'success': False, 'error': 'File is required'})
+            return
         
         if not key:
-            return {
-                'text': 'Error: Key is required',
-                'json': {'success': False, 'error': 'Key is required'},
-                'files': []
-            }
-        
-        if not hasattr(file_obj, 'save_as'):
-            return {
-                'text': 'Error: Invalid file object',
-                'json': {'success': False, 'error': 'Invalid file object'},
-                'files': []
-            }
+            yield self.create_text_message("Error: Key is required")
+            yield self.create_json_message({'success': False, 'error': 'Key is required'})
+            return
         
         try:
             import tempfile
-            temp_dir = tempfile.gettempdir()
             
+            temp_dir = tempfile.gettempdir()
             input_path = os.path.join(temp_dir, file_obj.filename)
-            file_obj.save_as(input_path)
+            
+            with open(input_path, 'wb') as f:
+                f.write(file_obj.blob)
             
             file_ext = os.path.splitext(file_obj.filename)[1].lower()
             
@@ -55,11 +48,9 @@ class DecryptFileSimple(Tool):
                 success, message = SecurityUtils.decrypt_7z(input_path, key, output_path)
                 output_filename = output_dir
             else:
-                return {
-                    'text': f'Error: Unsupported file type. Simple decryption only supports PDF, ZIP, and 7Z files.',
-                    'json': {'success': False, 'error': 'Unsupported file type'},
-                    'files': []
-                }
+                yield self.create_text_message(f'Error: Unsupported file type. Simple decryption only supports PDF, ZIP, and 7Z files.')
+                yield self.create_json_message({'success': False, 'error': 'Unsupported file type'})
+                return
             
             if success:
                 if file_ext in ['.zip', '.7z']:
@@ -75,50 +66,42 @@ class DecryptFileSimple(Tool):
                         files = archive.namelist()
                         archive.close()
                     
-                    return {
-                        'text': f"File decrypted successfully with simple method.\n\nFile: {file_obj.filename}\nFile type: {file_ext.upper()}\nOutput directory: {output_filename}\nExtracted files: {len(files)}",
-                        'json': {
-                            'success': True,
-                            'filename': file_obj.filename,
-                            'file_type': file_ext.upper(),
-                            'output_directory': output_filename,
-                            'extracted_files_count': len(files),
-                            'key': key
-                        },
-                        'files': []
-                    }
-                else:
-                    output_file = {
-                        'type': 'file',
-                        'filename': output_filename,
-                        'path': output_path
-                    }
+                    yield self.create_text_message(f"File decrypted successfully with simple method.\n\nFile: {file_obj.filename}\nFile type: {file_ext.upper()}\nOutput directory: {output_filename}\nExtracted files: {len(files)}")
                     
+                    yield self.create_json_message({
+                        'success': True,
+                        'filename': file_obj.filename,
+                        'file_type': file_ext.upper(),
+                        'output_directory': output_filename,
+                        'extracted_files_count': len(files),
+                        'key': key
+                    })
+                else:
                     file_size = os.path.getsize(output_path)
                     file_size_mb = file_size / (1024 * 1024)
                     
-                    return {
-                        'text': f"File decrypted successfully with simple method.\n\nFile: {file_obj.filename}\nDecrypted file: {output_filename}\nFile size: {file_size_mb:.2f} MB\nFile type: {file_ext.upper()}",
-                        'json': {
-                            'success': True,
-                            'filename': file_obj.filename,
-                            'decrypted_filename': output_filename,
-                            'file_size_bytes': file_size,
-                            'file_size_mb': round(file_size_mb, 2),
-                            'file_type': file_ext.upper(),
-                            'key': key
-                        },
-                        'files': [output_file]
-                    }
+                    yield self.create_text_message(f"File decrypted successfully with simple method.\n\nFile: {file_obj.filename}\nDecrypted file: {output_filename}\nFile size: {file_size_mb:.2f} MB\nFile type: {file_ext.upper()}")
+                    
+                    yield self.create_json_message({
+                        'success': True,
+                        'filename': file_obj.filename,
+                        'decrypted_filename': output_filename,
+                        'file_size_bytes': file_size,
+                        'file_size_mb': round(file_size_mb, 2),
+                        'file_type': file_ext.upper(),
+                        'key': key
+                    })
+                    
+                    yield self.create_blob_message(
+                        blob=open(output_path, 'rb').read(),
+                        meta={
+                            'filename': output_filename,
+                            'mime_type': 'application/octet-stream'
+                        }
+                    )
             else:
-                return {
-                    'text': message,
-                    'json': {'success': False, 'error': message},
-                    'files': []
-                }
+                yield self.create_text_message(message)
+                yield self.create_json_message({'success': False, 'error': message})
         except Exception as e:
-            return {
-                'text': f'Error during decryption: {str(e)}',
-                'json': {'success': False, 'error': str(e)},
-                'files': []
-            }
+            yield self.create_text_message(f'Error during decryption: {str(e)}')
+            yield self.create_json_message({'success': False, 'error': str(e)})

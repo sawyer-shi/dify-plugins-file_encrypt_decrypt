@@ -2,13 +2,13 @@ identity:
   author: "sawyer-shi"
   name: "encrypt_file_auto"
   label:
-    en_US: "Encrypt File with Auto-generated Key"
+    en_US: "Encrypt File Normal -- Auto-generated Key"
     zh_Hans: "文件通用加密--自动秘钥"
 description:
   human:
-    en_US: "Encrypt any file using AES encryption with an automatically generated key. Supports all file types. The key will be returned and must be saved for decryption."
-    zh_Hans: "使用AES加密算法和自动生成的秘钥加密任何文件。支持所有文件类型。秘钥将被返回，必须保存用于解密。"
-  llm: "Encrypt any file using AES encryption with an automatically generated key. Supports all file types. The key will be returned and must be saved for decryption."
+    en_US: "Support encrypting all file types into the three formats: locked, enc, and secret (e.g., test.mp4 → test.mp4.locked, test.pdf → test.pdf.enc, test.zip → test.zip.secret...)."
+    zh_Hans: "支持将所有类型文件加密为locked、enc、secret三种格式（如：test.mp4 -> test.mp4.locked、test.pdf -> test.pdf.enc、test.zip -> test.zip.secret...）。"
+  llm: "Support encrypting all file types into the three formats: locked, enc, and secret (e.g., test.mp4 → test.mp4.locked, test.pdf → test.pdf.enc, test.zip → test.zip.secret...)."
 class_name: EncryptFileAuto
 parameters:
   - name: file
@@ -26,14 +26,27 @@ parameters:
     label:
       en_US: "Encryption Suffix"
       zh_Hans: "加密后缀"
-    type: string
-    required: false
+    type: select
+    required: true
     default: "locked"
-    form: llm
+    form: form
     human_description:
-      en_US: "The suffix to add to the encrypted file name (default: locked)."
-      zh_Hans: "添加到加密文件名的后缀（默认：locked）。"
-    llm_description: "The suffix to add to the encrypted file name (default: locked)."
+      en_US: "The suffix to add to the encrypted file name."
+      zh_Hans: "添加到加密文件名的后缀。"
+    llm_description: "The suffix to add to the encrypted file name."
+    options:
+      - value: "locked"
+        label:
+          en_US: "locked"
+          zh_Hans: "locked"
+      - value: "enc"
+        label:
+          en_US: "enc"
+          zh_Hans: "enc"
+      - value: "secret"
+        label:
+          en_US: "secret"
+          zh_Hans: "secret"
 extra:
   python:
     source: tools/encrypt_file_auto.py

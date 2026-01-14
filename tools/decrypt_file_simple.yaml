@@ -2,13 +2,13 @@ identity:
   author: "sawyer-shi"
   name: "decrypt_file_simple"
   label:
-    en_US: "Simple Decrypt File"
+    en_US: "Decrypt File Simple"
     zh_Hans: "文件简单解密"
 description:
   human:
-    en_US: "Decrypt PDF, ZIP, or 7Z files that were encrypted with the simple encryption method. For ZIP and 7Z files, contents will be extracted to a directory."
-    zh_Hans: "解密使用简单加密方法加密的PDF、ZIP或7Z文件。对于ZIP和7Z文件，内容将被提取到目录中。"
-  llm: "Decrypt PDF, ZIP, or 7Z files that were encrypted with the simple encryption method. For ZIP and 7Z files, contents will be extracted to a directory."
+    en_US: "Decrypt PDF, ZIP, or 7Z files that were encrypted with the simple encryption method."
+    zh_Hans: "用密码打开简单加密方法加密的PDF、ZIP或7Z文件。"
+  llm: "Decrypt PDF, ZIP, or 7Z files that were encrypted with the simple encryption method."
 class_name: DecryptFileSimple
 parameters:
   - name: file

@@ -2,13 +2,13 @@ identity:
   author: "sawyer-shi"
   name: "encrypt_file_simple_manual"
   label:
-    en_US: "Simple Encrypt File with Manual Key"
+    en_US: "Encrypt File Simple -- Manual Key"
     zh_Hans: "文件简单加密--手动秘钥"
 description:
   human:
-    en_US: "Encrypt PDF, ZIP, or 7Z files with password protection using a manually provided key. The file can be opened with the correct password/key."
-    zh_Hans: "使用手动提供的秘钥为PDF、ZIP或7Z文件添加密码保护。文件可以使用正确的密码/秘钥打开。"
-  llm: "Encrypt PDF, ZIP, or 7Z files with password protection using a manually provided key. The file can be opened with the correct password/key."
+    en_US: "Encrypt PDF, ZIP, or 7Z files with password protection using a manually provided key."
+    zh_Hans: "使用手动提供的秘钥为PDF、ZIP或7Z文件添加密码保护。"
+  llm: "Encrypt PDF, ZIP, or 7Z files with password protection using a manually provided key."
 class_name: EncryptFileSimpleManual
 parameters:
   - name: file

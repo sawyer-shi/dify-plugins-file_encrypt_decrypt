@@ -2,13 +2,13 @@ identity:
   author: "sawyer-shi"
   name: "decrypt_file"
   label:
-    en_US: "Decrypt File"
+    en_US: "Decrypt File Normal"
     zh_Hans: "文件通用解密"
 description:
   human:
-    en_US: "Decrypt files that were encrypted with the general encryption method. Supports files with .locked, .enc, or .secret suffix."
-    zh_Hans: "解密使用通用加密方法加密的文件。支持带有.locked、.enc或.secret后缀的文件。"
-  llm: "Decrypt files that were encrypted with the general encryption method. Supports files with .locked, .enc, or .secret suffix."
+    en_US: "Decrypt the files xxx.pdf.locked, xxx.mp4.enc, and xxx.xlsx.secret ... into their original formats (e.g., xxx.pdf.locked → xxx.pdf...)."
+    zh_Hans: "将xxx.pdf.locked、xxx.mp4.enc、xxx.xlsx.secret...文件解密为原始文件（如：xxx.pdf.locked -> xxx.pdf...）。"
+  llm: "Decrypt the files xxx.pdf.locked, xxx.mp4.enc, and xxx.xlsx.secret ... into their original formats (e.g., xxx.pdf.locked → xxx.pdf...)."
 class_name: DecryptFile
 parameters:
   - name: file

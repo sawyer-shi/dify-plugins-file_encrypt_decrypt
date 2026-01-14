@@ -2,13 +2,13 @@ identity:
   author: "sawyer-shi"
   name: "encrypt_file_simple_auto"
   label:
-    en_US: "Simple Encrypt File with Auto-generated Key"
+    en_US: "Encrypt File Simple -- Auto-generated Key"
     zh_Hans: "文件简单加密--自动秘钥"
 description:
   human:
-    en_US: "Encrypt PDF, ZIP, or 7Z files with password protection using an automatically generated key. The key will be returned and must be saved to open the file."
-    zh_Hans: "使用自动生成的秘钥为PDF、ZIP或7Z文件添加密码保护。秘钥将被返回，必须保存以打开文件。"
-  llm: "Encrypt PDF, ZIP, or 7Z files with password protection using an automatically generated key. The key will be returned and must be saved to open the file."
+    en_US: "Encrypt PDF, ZIP, or 7Z files with password protection using an automatically generated key."
+    zh_Hans: "使用自动生成的秘钥为PDF、ZIP或7Z文件添加密码保护。"
+  llm: "Encrypt PDF, ZIP, or 7Z files with password protection using an automatically generated key."
 class_name: EncryptFileSimpleAuto
 parameters:
   - name: file

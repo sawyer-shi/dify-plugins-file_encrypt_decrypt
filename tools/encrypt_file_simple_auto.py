@@ -45,6 +45,13 @@ class EncryptFileSimpleAuto(Tool):
                 file_size = os.path.getsize(output_path)
                 file_size_mb = file_size / (1024 * 1024)
                 
+                mime_type_map = {
+                    '.pdf': 'application/pdf',
+                    '.zip': 'application/zip',
+                    '.7z': 'application/x-7z-compressed'
+                }
+                mime_type = mime_type_map.get(file_ext, 'application/octet-stream')
+                
                 yield self.create_text_message(f"File encrypted successfully with simple method.\n\nFile: {file_obj.filename}\nFile size: {file_size_mb:.2f} MB\nFile type: {file_ext.upper()}\n\nIMPORTANT: Save this key to open the file:\n{key}\n\nNote: The file is encrypted with password protection. You will need the key to open it.")
                 
                 yield self.create_json_message({
@@ -53,6 +60,7 @@ class EncryptFileSimpleAuto(Tool):
                     'file_size_bytes': file_size,
                     'file_size_mb': round(file_size_mb, 2),
                     'file_type': file_ext.upper(),
+                    'mime_type': mime_type,
                     'key': key
                 })
                 
@@ -60,7 +68,7 @@ class EncryptFileSimpleAuto(Tool):
                     blob=open(output_path, 'rb').read(),
                     meta={
                         'filename': file_obj.filename,
-                        'mime_type': 'application/octet-stream'
+                        'mime_type': mime_type
                     }
                 )
             else:

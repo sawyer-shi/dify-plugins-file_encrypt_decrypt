@@ -80,6 +80,13 @@ class DecryptFileSimple(Tool):
                     file_size = os.path.getsize(output_path)
                     file_size_mb = file_size / (1024 * 1024)
                     
+                    mime_type_map = {
+                        '.pdf': 'application/pdf',
+                        '.zip': 'application/zip',
+                        '.7z': 'application/x-7z-compressed'
+                    }
+                    mime_type = mime_type_map.get(file_ext, 'application/octet-stream')
+                    
                     yield self.create_text_message(f"File decrypted successfully with simple method.\n\nFile: {file_obj.filename}\nDecrypted file: {output_filename}\nFile size: {file_size_mb:.2f} MB\nFile type: {file_ext.upper()}")
                     
                     yield self.create_json_message({
@@ -89,6 +96,7 @@ class DecryptFileSimple(Tool):
                         'file_size_bytes': file_size,
                         'file_size_mb': round(file_size_mb, 2),
                         'file_type': file_ext.upper(),
+                        'mime_type': mime_type,
                         'key': key
                     })
                     
@@ -96,7 +104,7 @@ class DecryptFileSimple(Tool):
                         blob=open(output_path, 'rb').read(),
                         meta={
                             'filename': output_filename,
-                            'mime_type': 'application/octet-stream'
+                            'mime_type': mime_type
                         }
                     )
             else:

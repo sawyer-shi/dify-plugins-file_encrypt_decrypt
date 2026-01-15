@@ -21,6 +21,7 @@
 3. 立即开始加密和解密您的文件
 
 ## 核心特性
+<img width="733" height="1718" alt="English" src="https://github.com/user-attachments/assets/453d2414-64b1-4cc0-bbce-e99966e6619a" /><img width="748" height="1656" alt="Chinese" src="https://github.com/user-attachments/assets/9cadfcb7-a581-4477-b34b-808325ee330d" />
 
 - **100% 本地处理**: 所有文件加密和解密操作均在您的本地机器上完全执行
 - **无需外部服务**: 无需连接任何外部服务或第三方 API

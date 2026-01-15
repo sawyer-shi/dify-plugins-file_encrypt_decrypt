@@ -45,16 +45,10 @@
 - Dify 平台访问权限
 - 所需的 Python 包（通过 requirements.txt 安装）
 
-## 安装与配置
-
-1. 安装所需的依赖项：
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-2. 按照标准插件安装流程在您的 Dify 环境中安装插件
-
 ## 使用方法
+
+如果您想在 Dify 中添加其他文件类型，请添加您需要的所有文件类型：
+<img width="1508" height="1874" alt="file-type" src="https://github.com/user-attachments/assets/afb3b41f-b97d-4d20-8b92-3b9e47337e89" />
 
 该插件提供以下工具：
 
@@ -69,6 +63,7 @@
   - 密码保护
   - 显示文件大小和类型
   - 输出加密文件
+<img width="2156" height="1303" alt="simple-A-01" src="https://github.com/user-attachments/assets/9bf00078-7d63-4468-9894-f9c1a48ed301" />
 
 ### 2. 文件简单加密 -- 自动密钥 (encrypt_file_simple_auto)
 使用自动生成的密钥加密 PDF、ZIP 或 7Z 文件。
@@ -81,6 +76,7 @@
   - 密码保护
   - 显示文件大小和类型
   - 输出加密文件
+<img width="2256" height="1273" alt="simple-B-01" src="https://github.com/user-attachments/assets/ca2352ea-c581-4dcf-a1cc-93bc61e15d74" />
 
 ### 3. 文件简单解密 (decrypt_file_simple)
 解密使用简单加密方法加密的 PDF、ZIP 或 7Z 文件。
@@ -93,6 +89,9 @@
   - 自动文件类型检测
   - 输出正确的文件类型
   - 显示文件大小和类型
+<img width="2513" height="1388" alt="simple-C-01" src="https://github.com/user-attachments/assets/67c964d8-b1c9-445c-9116-517b499a06b7" />
+<img width="791" height="375" alt="simple-C-02" src="https://github.com/user-attachments/assets/ebbc8e02-7037-4fe3-b02e-d913b6a27641" />
+<img width="2524" height="1309" alt="simple-C-03" src="https://github.com/user-attachments/assets/3c72fa50-dccd-4f2a-a4fb-500af434b7ba" />
 
 ### 4. 文件通用加密 -- 手动密钥 (encrypt_file_manual)
 使用手动提供的密钥和自定义后缀加密任何文件类型。
@@ -110,6 +109,7 @@
   - 密码保护
   - 显示文件大小和类型
   - 输出带有自定义后缀的加密文件
+<img width="2645" height="964" alt="normal-A-01" src="https://github.com/user-attachments/assets/f6860cb9-0cf4-4fb1-aa3a-cc0c0a9858a0" />
 
 ### 5. 文件通用加密 -- 自动密钥 (encrypt_file_auto)
 使用自动生成的密钥和自定义后缀加密任何文件类型。
@@ -127,6 +127,7 @@
   - 密码保护
   - 显示文件大小和类型
   - 输出带有自定义后缀的加密文件
+<img width="2349" height="1165" alt="normal-B-01" src="https://github.com/user-attachments/assets/2382469f-b0b1-47a0-adcf-07669b38a057" />
 
 ### 6. 文件通用解密 (decrypt_file)
 将带有 .pdf.locked、.mp4.enc、.xlsx.secret 等后缀的文件解密为原始格式。
@@ -139,6 +140,8 @@
   - 自动文件类型检测
   - 输出正确的文件类型
   - 显示文件大小和类型
+<img width="2584" height="1606" alt="normal-C-01" src="https://github.com/user-attachments/assets/313cbf73-6f3d-4d92-bb26-bae9be5e76fc" />
+<img width="2442" height="1468" alt="normal-C-02" src="https://github.com/user-attachments/assets/3d83d307-5003-46e8-9459-faa87c34981d" />
 
 ### 7. 文件高级加密 -- 手动密钥 (encrypt_file_pro_manual)
 使用手动提供的密钥和自定义后缀加密任何文件类型。
@@ -156,6 +159,7 @@
   - 密码保护
   - 显示文件大小和类型
   - 输出带有自定义后缀的加密文件
+<img width="2330" height="1061" alt="pro-A-01" src="https://github.com/user-attachments/assets/3db1441d-cc4d-428e-84af-5cf835b9b037" />
 
 ### 8. 文件高级加密 -- 自动密钥 (encrypt_file_pro_auto)
 使用自动生成的密钥和自定义后缀加密任何文件类型。
@@ -173,6 +177,7 @@
   - 密码保护
   - 显示文件大小和类型
   - 输出带有自定义后缀的加密文件
+<img width="2351" height="1234" alt="pro-B-01" src="https://github.com/user-attachments/assets/327f0df5-dc8d-42d0-8d37-ed45d75aa771" />
 
 ### 9. 文件高级解密 (decrypt_file_pro)
 将带有 locked、enc 或 secret 后缀的文件解密为原始格式。
@@ -185,6 +190,8 @@
   - 自动文件类型检测
   - 输出正确的文件类型
   - 显示文件大小和类型
+<img width="2378" height="1095" alt="pro-C-01" src="https://github.com/user-attachments/assets/18e4c481-8cfd-4006-9a49-dec7884e17f2" />
+<img width="2448" height="1642" alt="pro-C-02" src="https://github.com/user-attachments/assets/e8c70a9c-0039-40a3-8243-d36dcc26b195" />
 
 ## 注意事项
 

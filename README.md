@@ -21,6 +21,8 @@ Supported file types include: .pdf, .txt, .doc, .docx, .xls, .xlsx, .ppt, .pptx,
 3. Start encrypting and decrypting your files immediately
 
 ## Core Features
+<img width="733" height="1718" alt="English" src="https://github.com/user-attachments/assets/453d2414-64b1-4cc0-bbce-e99966e6619a" /><img width="748" height="1656" alt="Chinese" src="https://github.com/user-attachments/assets/9cadfcb7-a581-4477-b34b-808325ee330d" />
+
 
 - **100% Local Processing**: All file encryption and decryption operations are executed entirely on your local machine
 - **No External Services**: No need to connect to any external services or third-party APIs

@@ -5,8 +5,8 @@ identity:
     en_US: "File Encrypt & Decrypt"
     zh_Hans: "文件加密与解密工具"
   description:
-   en_US: "‌Local File Encryption & Decryption‌: (Normal & Pro Methods)Supported file types include videos, images, audio files, documents, code files, executable files, compressed archives, and more."
-  zh_Hans: "本地文件加密与解密：(通用和高级加密解密方法)支持的文件类型包括视频、图片、音频、文档、代码文件、程序文件、压缩包等等。"
+   en_US: "‌Local File Encryption & Decryption‌:Supported file types include videos, images, audio files, documents, code files, executable files, compressed archives, and more."
+   zh_Hans: "本地文件加密与解密：支持的文件类型包括视频、图片、音频、文档、代码文件、程序文件、压缩包等等。"
   icon: "icon.png"
 tools:
   - tools/encrypt_file_simple_manual.yaml

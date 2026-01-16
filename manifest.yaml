@@ -1,13 +1,16 @@
 version: 0.0.2
 type: plugin
+tags: 
+  - productivity
+  - utilities
 author: sawyer-shi
 name: file_encrypt_decrypt
 label:
   en_US: "File Encrypt & Decrypt"
   zh_Hans: "文件加密与解密工具"
 description:
-  en_US: "‌Local File Encryption & Decryption‌:Supported file types include videos, images, audio files, documents, code files, executable files, compressed archives, and more."
-  zh_Hans: "本地文件加密与解密：支持的文件类型包括视频、图片、音频、文档、代码文件、程序文件、压缩包等。"
+  en_US: "‌Local File Encryption & Decryption: Supports encryption and decryption for all file types—including videos, images, audio, documents, code, executables, and archives—to enhance file transfer security."
+  zh_Hans: "本地文件加密与解密：支持视频、图片、音频、文档、代码文件、程序文件、压缩包等所有类型文件的加密与解密，提升文件传输安全。"
 icon: icon.png
 resource:
   memory: 268435456

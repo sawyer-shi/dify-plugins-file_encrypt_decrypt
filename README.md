@@ -6,12 +6,13 @@ Supported file types include: .pdf, .txt, .doc, .docx, .xls, .xlsx, .ppt, .pptx,
 
 ## Version Information
 
-- **Current Version**: v0.0.2
-- **Release Date**: 2026-01-16
+- **Current Version**: v0.0.3
+- **Release Date**: 2026-01-23
 - **Compatibility**: Dify Plugin Framework
 - **Python Version**: 3.12
 
 ### Version History
+- **v0.0.3** (2026-01-23): Bug fixes
 - **v0.0.2** (2026-01-16): Update plugin description and optimize file type descriptions
 - **v0.0.1** (2026-01-14): Initial version with file encryption and decryption features
 
